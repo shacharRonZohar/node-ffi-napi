@@ -1,12 +1,13 @@
 {
-  "name": "ffi-napi",
-  "version": "4.0.3",
+  "name": "@rzshachar/ffi-napi",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Anna Henningsen <anna@addaleax.net>",
   "contributors": [
     "Rick Branson <rick@diodeware.com>",
     "Nathan Rajlich <nathan@tootallnate.net>",
-    "Gabor Mezo <gabor.mezo@outlook.com>"
+    "Gabor Mezo <gabor.mezo@outlook.com>",
+    "Shachar Ron Zohar <rzshachar@gmail.com>"
   ],
   "description": "A foreign function interface (FFI) for Node.js, N-API style",
   "keywords": [
@@ -20,7 +21,7 @@
     "napi",
     "stable"
   ],
-  "homepage": "http://github.com/node-ffi-napi/node-ffi-napi",
+  "homepage": "https://github.com/shacharRonZohar/node-ffi-napi",
   "engines": {
     "node": ">=10"
   },
@@ -49,9 +50,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/node-ffi-napi/node-ffi-napi.git"
-  },
-  "bugs": {
-    "url": "http://github.com/node-ffi-napi/node-ffi-napi/issues"
+    "url": "https://github.com/shacharRonZohar/node-ffi-napi"
   }
 }

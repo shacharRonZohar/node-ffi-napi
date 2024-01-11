@@ -1,6 +1,15 @@
-node-ffi-napi
-=============
+# node-ffi-napi
+
+**NOTICE**: This is a fork of the original `node-ffi` module. The original has problems building on Windows and has not been updated in a while. This fork is intended to be a drop-in replacement for the original module. It is not intended to be a long-term fork. If the original module is updated to work on Windows, this fork will be deprecated.
+Use this module instead of the original if you get the following error when installing the original module:
+
+```bash
+'"call"' is not recognized as an internal or external command,
+│ operable program or batch file.
+```
+
 ### Node.js Foreign Function Interface for N-API
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/node-ffi-napi/node-ffi-napi.svg)](https://greenkeeper.io/)
 
 [![NPM Version](https://img.shields.io/npm/v/ffi-napi.svg?style=flat)](https://npmjs.org/package/ffi-napi)
@@ -28,71 +37,65 @@ in the context of garbage collection and multi-threaded execution. It is
 recommended to avoid any multi-threading usage of this library
 if possible.
 
-Example
--------
+## Example
 
-``` js
-var ffi = require('ffi-napi');
+```js
+var ffi = require('ffi-napi')
 
 var libm = ffi.Library('libm', {
-  'ceil': [ 'double', [ 'double' ] ]
-});
-libm.ceil(1.5); // 2
+  ceil: ['double', ['double']],
+})
+libm.ceil(1.5) // 2
 
 // You can also access just functions in the current process by passing a null
 var current = ffi.Library(null, {
-  'atoi': [ 'int', [ 'string' ] ]
-});
-current.atoi('1234'); // 1234
+  atoi: ['int', ['string']],
+})
+current.atoi('1234') // 1234
 ```
 
 For a more detailed introduction, see the [node-ffi tutorial page][tutorial].
 
-Requirements
-------------
+## Requirements
 
- * Linux, OS X, Windows, or Solaris.
- * `libffi` comes bundled with node-ffi-napi; it does *not* need to be installed on your system.
- * The current version is tested to run on Node 6 and above.
+- Linux, OS X, Windows, or Solaris.
+- `libffi` comes bundled with node-ffi-napi; it does _not_ need to be installed on your system.
+- The current version is tested to run on Node 6 and above.
 
-Installation
-------------
+## Installation
 
 Make sure you've installed all the [necessary build
 tools](https://github.com/TooTallNate/node-gyp#installation) for your platform,
 then invoke:
 
-``` bash
+```bash
 $ npm install ffi-napi
 ```
 
-Source Install / Manual Compilation
------------------------------------
+## Source Install / Manual Compilation
 
 To compile from source it's easiest to use
 [`node-gyp`](https://github.com/TooTallNate/node-gyp):
 
-``` bash
+```bash
 $ npm install -g node-gyp
 ```
 
 Now you can compile `node-ffi-napi`:
 
-``` bash
+```bash
 $ git clone git://github.com/node-ffi-napi/node-ffi-napi.git
 $ cd node-ffi
 $ node-gyp rebuild
 ```
 
-Types
------
+## Types
 
 The types that you specify in function declarations correspond to ref's types
 system. So [see its docs][ref-types] for
 a reference if you are unfamiliar.
 
-V8 and 64-bit Types
--------------------
+## V8 and 64-bit Types
 
 Internally, V8 stores integers that will fit into a 32-bit space in a 32-bit
 integer, and those that fall outside of this get put into double-precision
@@ -100,8 +103,7 @@ floating point numbers. This is problematic because FP numbers are imprecise.
 To get around this, the methods in node-ffi that deal with 64-bit integers return
 strings and can accept strings as parameters.
 
-Call Overhead
--------------
+## Call Overhead
 
 There is non-trivial overhead associated with FFI calls. Comparing a hard-coded
 binding version of `strtoul()` to an FFI version of `strtoul()` shows that the
@@ -109,8 +111,7 @@ native hard-coded binding is orders of magnitude faster. So don't just use the
 C version of a function just because it's faster. There's a significant cost in
 FFI calls, so make them worth it.
 
-License
--------
+## License
 
 MIT License. See the `LICENSE` file.
 
