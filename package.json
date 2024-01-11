@@ -45,7 +45,7 @@
   "scripts": {
     "install": "node-gyp-build",
     "prebuild": "prebuildify --napi --tag-armv --tag-uv",
-    "prepack": "prebuildify-ci download ",
+    "prepack": "prebuildify-ci download",
     "test": "node-gyp rebuild --directory test && nyc mocha --expose-gc --reporter spec"
   },
   "repository": {
